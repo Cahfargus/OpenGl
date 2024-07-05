@@ -1,7 +1,7 @@
 IDIR =../include
 CC=g++
 CFLAGS=-I$(IDIR)
-DEPS =shader.h glad.h khrplatform.h 
+DEPS =shader.h glad.h khrplatform.h stb_image.h
 
 %.o: %.c $(DEPS)
 	$(CC) -cpp -o $@ $< $(CFLAGS)
