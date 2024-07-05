@@ -61,10 +61,10 @@ int main(){
 
     float vertices[] = {
         //positions           //Colors            //Nick Tex    //Flag Tex
-        -0.5f,  0.5f, 0.0f,   0.3f, 0.0f, 0.5f,   -2.0f, 2.0f,   0.2f, 0.8f,    //top-left
-         0.5f,  0.5f, 0.0f,   0.2f, 0.0f, 0.1f,   2.0f, 2.0f,   0.8f, 0.8f,    //top-right
-        -0.5f, -0.5f, 0.0f,   0.0f, 0.5f, 0.0f,   -2.0f, -2.0f,   0.2f, 0.2f,    //bottom-left
-         0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 0.4f,   2.0f, -2.0f,   0.8f, 0.2f    //bottom-right
+        -0.5f,  0.5f, 0.0f,   0.3f, 0.0f, 0.5f,   0.0f, 1.0f,   0.0f, 1.0f,    //top-left
+         0.5f,  0.5f, 0.0f,   0.2f, 0.0f, 0.1f,   1.0f, 1.0f,   1.0f, 1.0,    //top-right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.5f, 0.0f,   0.0f, 0.4f,   0.0f, 0.0f,    //bottom-left
+         0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 0.4f,   1.0f, 0.4f,   1.0f, 0.0f    //bottom-right
     };
 
     unsigned int indices[] = {
@@ -115,7 +115,7 @@ int main(){
     //import image as readable data
     int width, height, nrChannels;
     stbi_set_flip_vertically_on_load(true);
-    unsigned char *data = stbi_load("../textures/pansy.jpg", &width, &height, &nrChannels, 0);
+    unsigned char *data = stbi_load("../textures/nick.jpg", &width, &height, &nrChannels, 0);
     //Generate texture from image and mipmap creating, then delete the original picture
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
     glGenerateMipmap(GL_TEXTURE_2D);
@@ -127,7 +127,7 @@ int main(){
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR); //MIPMAPS only for min
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    data = stbi_load("../textures/Rainbowflag.jpg", &width, &height, &nrChannels, 0);
+    data = stbi_load("../textures/beaver.jpg", &width, &height, &nrChannels, 0);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
     glGenerateMipmap(GL_TEXTURE_2D);
     stbi_image_free(data);    
